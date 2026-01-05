@@ -2,934 +2,417 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Auraa — Fine Jewellery</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUMIÈRE & OMBRE | Haute Joaillerie</title>
-    <meta name="description" content="Ultra-premium fine jewellery designed for timeless elegance. Experience the shine of perfection.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
     <style>
-        /* =========================================
-           1. CORE VARIABLES & RESET
-           ========================================= */
         :root {
-            /* Palette */
-            --bg-deep: #050505;
-            --bg-charcoal: #0f0f0f;
-            --bg-panel: rgba(20, 20, 20, 0.7);
-            
-            --gold-primary: #D4AF37;
-            --gold-light: #F4E4BC;
-            --gold-dark: #aa8c2c;
-            --gold-mute: #8a7646;
-            
-            --text-light: #f5f5f5;
-            --text-grey: #a0a0a0;
-            --text-dark: #111111;
-
-            /* Typography */
-            --font-serif: 'Cormorant Garamond', serif;
-            --font-sans: 'Montserrat', sans-serif;
-
-            /* Spacing */
-            --spacing-xs: 0.5rem;
-            --spacing-sm: 1rem;
-            --spacing-md: 2rem;
-            --spacing-lg: 4rem;
-            --spacing-xl: 8rem;
-
-            /* Effects */
-            --glass-blur: blur(12px);
-            --transition-slow: all 0.8s cubic-bezier(0.2, 1, 0.3, 1); /* Luxury ease */
-            --transition-med: all 0.5s ease-out;
-            --glow-gold: 0 0 20px rgba(212, 175, 55, 0.15);
-            --border-thin: 1px solid rgba(212, 175, 55, 0.2);
+            --bg-dark: #070708;
+            --gold: #d6b25e;
+            --gold-soft: rgba(214,178,94,0.35);
+            --text-main: #f6f6f6;
+            --text-muted: #b5b5b5;
+            --glass: rgba(255,255,255,0.08);
         }
 
-        *, *::before, *::after {
-            box-sizing: border-box;
+        * {
             margin: 0;
             padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
+            box-sizing: border-box;
         }
 
         body {
-            background-color: var(--bg-deep);
-            color: var(--text-light);
-            font-family: var(--font-sans);
-            line-height: 1.6;
+            background: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
         }
 
-        /* Selection Color */
-        ::selection {
-            background: var(--gold-dark);
-            color: white;
-        }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-deep);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--gold-mute);
-            border-radius: 3px;
-        }
-
-        /* =========================================
-           2. TYPOGRAPHY UTILITIES
-           ========================================= */
-        h1, h2, h3, h4 {
-            font-family: var(--font-serif);
-            font-weight: 400;
-            color: var(--text-light);
-            letter-spacing: 0.02em;
-        }
-
-        .heading-xl {
-            font-size: clamp(3rem, 6vw, 5rem);
-            line-height: 1.1;
-        }
-
-        .heading-lg {
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .heading-md {
-            font-size: 1.8rem;
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .subtext {
-            color: var(--text-grey);
-            font-size: 1rem;
-            font-weight: 300;
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
             letter-spacing: 0.05em;
         }
 
-        .gold-text {
-            color: var(--gold-primary);
-        }
-
-        .italic {
-            font-style: italic;
-        }
-
-        /* =========================================
-           3. UI COMPONENTS
-           ========================================= */
-        
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 1.2rem 2.5rem;
-            border: 1px solid var(--gold-primary);
-            color: var(--gold-primary);
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 0.2em;
-            transition: var(--transition-med);
+        section {
+            padding: 120px 8vw;
             position: relative;
-            overflow: hidden;
-            background: transparent;
-            cursor: pointer;
         }
 
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
-            transition: var(--transition-med);
-        }
-
-        .btn:hover {
-            background: rgba(212, 175, 55, 0.1);
-            box-shadow: var(--glow-gold);
-        }
-
-        .btn:hover::before {
-            left: 100%;
-            transition: 0.7s;
-        }
-
-        .btn-fill {
-            background: var(--gold-primary);
-            color: var(--bg-deep);
-            font-weight: 600;
-        }
-        .btn-fill:hover {
-            background: var(--gold-light);
-            color: var(--bg-deep);
-        }
-
-        /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1.5rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            transition: var(--transition-slow);
-            mix-blend-mode: difference; /* Keeps nav visible on light/dark */
-        }
-
-        .navbar.scrolled {
-            background: rgba(5, 5, 5, 0.85);
-            backdrop-filter: var(--glass-blur);
-            padding: 1rem 5%;
-            mix-blend-mode: normal;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .brand-logo {
-            font-family: var(--font-serif);
-            font-size: 1.5rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--text-light);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 3rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            position: relative;
-            opacity: 0.8;
-            transition: 0.3s;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0%;
-            height: 1px;
-            background: var(--gold-primary);
-            transition: var(--transition-med);
-        }
-
-        .nav-links a:hover {
-            opacity: 1;
-            color: var(--gold-primary);
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Mobile Menu Trigger */
-        .menu-toggle {
-            display: none;
-            cursor: pointer;
-            flex-direction: column;
-            gap: 6px;
-        }
-        .bar { width: 30px; height: 1px; background: white; }
-
-        /* =========================================
-           4. SECTIONS
-           ========================================= */
-
-        /* HERO SECTION */
-        .hero {
-            height: 100vh;
-            width: 100%;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background: #000;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            /* Placeholder for luxury dark jewellery image */
-            background-image: url('https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=2075&auto=format&fit=crop'); 
-            background-size: cover;
-            background-position: center;
-            opacity: 0.6;
-            transform: scale(1.1);
-            transition: transform 10s ease;
-            z-index: 0;
-        }
-
-        /* Glaze Overlay (Mouse Interaction) */
-        .hero-glaze {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.15), transparent 40%);
-            z-index: 1;
-            pointer-events: none;
-            mix-blend-mode: soft-light;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            max-width: 800px;
-            padding: 2rem;
-        }
-
-        .hero-title {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 1.2s cubic-bezier(0.2, 1, 0.3, 1) forwards 0.5s;
-        }
-
-        .hero-sub {
-            margin: 1.5rem 0 3rem 0;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeUp 1.2s cubic-bezier(0.2, 1, 0.3, 1) forwards 0.8s;
-        }
-
-        .hero-actions {
-            opacity: 0;
-            animation: fadeIn 1.5s ease forwards 1.2s;
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-        }
-
-        /* BRAND STORY */
-        .section-padding {
-            padding: var(--spacing-xl) 10%;
-        }
-
-        .story-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-lg);
-            align-items: center;
-        }
-
-        .story-text {
-            padding-right: var(--spacing-md);
-        }
-
-        .story-image-wrapper {
-            position: relative;
-            overflow: hidden;
-            height: 600px;
-        }
-
-        .story-image {
+        img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 1.5s ease;
         }
 
-        .story-image-wrapper:hover .story-image {
-            transform: scale(1.05);
+        /* ================= HERO ================= */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
         }
 
-        .separator-line {
-            width: 60px;
-            height: 1px;
-            background: var(--gold-primary);
-            margin: 2rem 0;
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 30% 40%, rgba(214,178,94,0.25), transparent 40%),
+                radial-gradient(circle at 70% 60%, rgba(214,178,94,0.15), transparent 50%);
+            z-index: 1;
         }
 
-        /* FEATURED COLLECTIONS */
-        .collections {
-            background-color: var(--bg-charcoal);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .grid-3 {
+        .hero-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4.2rem;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 42px;
+            line-height: 1.8;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 22px;
+        }
+
+        .btn {
+            padding: 15px 38px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.4s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #f0d88a, #b18a2f);
+            border: none;
+            color: #000;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 60px rgba(214,178,94,0.35);
+        }
+
+        .hero-img {
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow:
+                0 40px 120px rgba(0,0,0,0.8),
+                inset 0 0 80px rgba(214,178,94,0.25);
+        }
+
+        /* ================= STORY ================= */
+        .story {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 90px;
+            align-items: center;
+        }
+
+        .story h2 {
+            font-size: 3.2rem;
+            margin-bottom: 26px;
+        }
+
+        .story p {
+            color: var(--text-muted);
+            line-height: 1.9;
+        }
+
+        .story-img {
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        /* ================= COLLECTIONS ================= */
+        .collections h2 {
+            text-align: center;
+            font-size: 3.4rem;
+            margin-bottom: 80px;
+        }
+
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 40px;
         }
 
         .collection-card {
             position: relative;
-            height: 500px;
+            border-radius: 26px;
             overflow: hidden;
-            group: cursor;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: var(--transition-med);
+            background: var(--glass);
+            backdrop-filter: blur(18px);
+            border: 1px solid rgba(214,178,94,0.25);
+            transition: 0.6s ease;
         }
 
-        .collection-bg {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s ease;
-            filter: brightness(0.8);
+        .collection-card img {
+            height: 360px;
+            transition: 0.6s ease;
         }
 
-        .collection-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 2rem;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-            transform: translateY(20px);
-            transition: var(--transition-med);
-            border-bottom: 1px solid transparent;
+        .collection-card:hover img {
+            transform: scale(1.08);
         }
 
         .collection-card:hover {
-            border-color: rgba(212, 175, 55, 0.4);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 40px 120px rgba(214,178,94,0.25);
+            transform: translateY(-10px);
         }
 
-        .collection-card:hover .collection-bg {
-            transform: scale(1.1);
-            filter: brightness(1);
+        .collection-label {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
         }
 
-        .collection-card:hover .collection-overlay {
-            transform: translateY(0);
+        .collection-label h3 {
+            font-size: 1.6rem;
         }
 
-        /* SIGNATURE PIECE */
-        .signature-section {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #000 70%);
+        .collection-label span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ================= SIGNATURE ================= */
+        .signature {
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(214,178,94,0.22), transparent 60%);
+        }
+
+        .signature h2 {
+            font-size: 3.6rem;
+            margin-bottom: 50px;
+        }
+
+        .signature-img {
+            width: 320px;
+            height: 320px;
+            margin: auto;
+            border-radius: 50%;
             overflow: hidden;
-        }
-
-        /* CSS 3D Floating Animation */
-        .signature-stage {
-            perspective: 1000px;
-            width: 400px;
-            height: 400px;
-            position: relative;
-            z-index: 5;
-        }
-
-        .signature-item {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            /* Placeholder for a transparent PNG ring */
-            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.8));
+            box-shadow:
+                0 0 80px rgba(214,178,94,0.5),
+                inset 0 0 60px rgba(214,178,94,0.4);
             animation: float 6s ease-in-out infinite;
         }
 
-        .spotlight-beam {
-            position: absolute;
-            top: -20%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 600px;
-            height: 800px;
-            background: linear-gradient(180deg, rgba(255,255,255,0.08), transparent 80%);
-            pointer-events: none;
-            filter: blur(50px);
+        @keyframes float {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-18px); }
         }
 
-        .signature-details {
-            position: absolute;
-            bottom: 10%;
-            text-align: center;
-            z-index: 10;
-        }
-
-        /* CRAFTSMANSHIP */
-        .craft-grid {
+        /* ================= CRAFT ================= */
+        .craft {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+            gap: 50px;
             text-align: center;
-            gap: 3rem;
         }
 
         .craft-item {
-            padding: 2rem;
-            border: 1px solid rgba(255,255,255,0.03);
-            transition: var(--transition-med);
+            padding-top: 30px;
+            border-top: 1px solid var(--gold-soft);
         }
 
-        .craft-item:hover {
-            border-color: var(--gold-mute);
-            background: rgba(255,255,255,0.02);
+        .craft-item h3 {
+            margin-bottom: 12px;
+            font-size: 1.7rem;
         }
 
-        .craft-icon {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 1.5rem;
-            fill: var(--gold-primary);
+        .craft-item p {
+            color: var(--text-muted);
         }
 
-        /* TESTIMONIALS */
-        .testimonials {
-            background-image: url('https://images.unsplash.com/photo-1617038224538-285606d60a5d?q=80&w=2070&auto=format&fit=crop');
-            background-attachment: fixed; /* Parallax */
-            background-size: cover;
-            position: relative;
-        }
-
-        .overlay-dark {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(5px);
-        }
-
-        .testimonial-slider {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
+        /* ================= TESTIMONIAL ================= */
+        .testimonial {
+            max-width: 720px;
+            margin: auto;
+            padding: 60px;
+            border-radius: 36px;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(214,178,94,0.3);
             text-align: center;
         }
 
-        .quote-icon {
-            font-size: 4rem;
-            color: var(--gold-mute);
-            font-family: serif;
-            line-height: 1;
-        }
-
-        .review-text {
-            font-family: var(--font-serif);
-            font-size: 2rem;
+        .testimonial p {
             font-style: italic;
-            margin: 2rem 0;
-            line-height: 1.4;
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
         }
 
-        .stars {
-            color: var(--gold-primary);
-            letter-spacing: 0.2rem;
-            margin-bottom: 1rem;
+        /* ================= CTA ================= */
+        .cta {
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(214,178,94,0.25), transparent 65%);
         }
 
-        /* FOOTER */
+        .cta h2 {
+            font-size: 3.2rem;
+            margin-bottom: 36px;
+        }
+
         footer {
-            background: #020202;
-            padding: var(--spacing-lg) 5% 2rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 70px 8vw;
+            text-align: center;
+            border-top: 1px solid rgba(214,178,94,0.25);
+            color: var(--text-muted);
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 4rem;
-        }
-
-        .footer-col h4 {
-            font-family: var(--font-sans);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 1.5rem;
-            color: var(--gold-light);
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-col ul li a {
-            color: var(--text-grey);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
-        .footer-col ul li a:hover {
-            color: var(--gold-primary);
-            padding-left: 5px;
-        }
-
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding-top: 2rem;
-            font-size: 0.8rem;
-            color: #555;
-        }
-
-        /* =========================================
-           5. ANIMATIONS & MEDIA QUERIES
-           ========================================= */
-
-        /* Scroll Reveal Class */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 1s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(2deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 1024px) {
-            .heading-xl { font-size: 3.5rem; }
-            .story-container { grid-template-columns: 1fr; }
-            .story-image-wrapper { height: 400px; order: -1; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; } /* Simplified for demo, would toggle with JS */
-            .menu-toggle { display: flex; }
-            .hero-actions { flex-direction: column; }
-            .craft-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
-            
-            /* Enable mobile menu if needed via JS class toggling */
-            .nav-mobile-active .nav-links {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background: #000;
-                padding: 2rem;
-                text-align: center;
+        @media (max-width: 900px) {
+            .hero-grid, .story {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 3.2rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar" id="navbar">
-        <a href="#" class="brand-logo">Lumière <span class="gold-text">&</span> Ombre</a>
-        
-        <ul class="nav-links">
-            <li><a href="#collections">Collections</a></li>
-            <li><a href="#story">Maison</a></li>
-            <li><a href="#signature">Signature</a></li>
-            <li><a href="#contact">Boutique</a></li>
-        </ul>
-
-        <div class="menu-toggle" onclick="toggleMenu()">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-    </nav>
-
-    <header class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-glaze" id="glaze"></div>
-        
-        <div class="hero-content">
-            <h1 class="heading-xl hero-title">Crafted to Be <span class="italic font-serif">Admired</span></h1>
-            <p class="subtext hero-sub">FINE JEWELLERY DESIGNED FOR TIMELESS ELEGANCE.</p>
-            <div class="hero-actions">
-                <a href="#collections" class="btn btn-fill">Explore Collection</a>
-                <a href="#contact" class="btn">Book Viewing</a>
-            </div>
-        </div>
-    </header>
-
-    <section id="story" class="section-padding">
-        <div class="story-container">
-            <div class="story-text reveal">
-                <h4 class="gold-text" style="letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 1rem;">The Heritage</h4>
-                <h2 class="heading-lg">Where Art Meets <span class="italic">Precision</span></h2>
-                <div class="separator-line"></div>
-                <p class="subtext" style="margin-bottom: 2rem; line-height: 1.8;">
-                    In the heart of the atelier, where shadows dance with light, we forge not just jewellery, but legacies. Every curve is calculated, every stone ethically sourced, and every polish applied by hands that have mastered the ancient art of goldsmithing.
-                </p>
-                <p class="subtext" style="line-height: 1.8;">
-                    Lumière & Ombre represents the duality of existence—the brilliance of the diamond and the mystery of the night.
-                </p>
-                <br>
-                <a href="#" class="btn" style="padding: 1rem 2rem; border: none; border-bottom: 1px solid var(--gold-primary);">Read Our Story</a>
-            </div>
-            <div class="story-image-wrapper reveal">
-                <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=2070&auto=format&fit=crop" alt="Artisan working on gold ring" class="story-image">
-            </div>
-        </div>
-    </section>
-
-    <section id="collections" class="section-padding collections">
-        <div class="section-header reveal">
-            <h2 class="heading-lg">Curated <span class="italic">Collections</span></h2>
-            <p class="subtext">SELECT YOUR STATEMENT</p>
-        </div>
-
-        <div class="grid-3">
-            <article class="collection-card reveal">
-                <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=2070&auto=format&fit=crop" alt="Diamond Rings" class="collection-bg">
-                <div class="collection-overlay">
-                    <h3 class="heading-md">The Solitaire</h3>
-                    <p class="subtext">Rings tailored for eternity.</p>
-                </div>
-            </article>
-
-            <article class="collection-card reveal">
-                <img src="https://images.unsplash.com/photo-1599643478518-17488fbbcd75?q=80&w=1974&auto=format&fit=crop" alt="Gold Necklaces" class="collection-bg">
-                <div class="collection-overlay">
-                    <h3 class="heading-md">Golden Drapery</h3>
-                    <p class="subtext">Necklaces that command the room.</p>
-                </div>
-            </article>
-
-            <article class="collection-card reveal">
-                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1974&auto=format&fit=crop" alt="Earrings" class="collection-bg">
-                <div class="collection-overlay">
-                    <h3 class="heading-md">Celestial Ears</h3>
-                    <p class="subtext">Earrings inspired by starlight.</p>
-                </div>
-            </article>
-        </div>
-        
-        <div style="text-align: center; margin-top: 4rem;" class="reveal">
-            <a href="#" class="btn">View All Collections</a>
-        </div>
-    </section>
-
-    <section id="signature" class="signature-section">
-        <div class="spotlight-beam"></div>
-        
-        <div class="signature-stage">
-            <img src="https://pngimg.com/d/ring_PNG27.png" alt="Signature Diamond Ring" class="signature-item">
-        </div>
-
-        <div class="signature-details reveal">
-            <h4 class="gold-text" style="letter-spacing: 0.3em; margin-bottom: 1rem;">THE MASTERPIECE</h4>
-            <h2 class="heading-xl">L'Étoile Noire</h2>
-            <p class="subtext" style="max-width: 500px; margin: 1rem auto 2rem;">
-                A rare black diamond encased in 24K rose gold. Only five exist in the world.
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-grid">
+        <div>
+            <h1>Jewellery Crafted<br>for Eternal Elegance</h1>
+            <p>
+                Discover fine jewellery designed to reflect light, legacy,
+                and uncompromising craftsmanship.
             </p>
-            <a href="#" class="btn btn-fill">Inquire Availability</a>
-        </div>
-    </section>
-
-    <section id="craftsmanship" class="section-padding">
-        <div class="section-header reveal">
-            <h2 class="heading-lg">The Standard of <span class="italic">Excellence</span></h2>
-        </div>
-        <div class="craft-grid">
-            <div class="craft-item reveal">
-                <svg class="craft-icon" viewBox="0 0 24 24">
-                    <path d="M12,2L2,8L4,20L12,22L20,20L22,8L12,2Z" fill="none" stroke="#D4AF37" stroke-width="1"/>
-                    <path d="M12,6L7,9L12,12L17,9L12,6Z" fill="#D4AF37"/>
-                </svg>
-                <h3 class="heading-md">Ethical Sourcing</h3>
-                <p class="subtext">Conflict-free stones traced back to their origins with absolute transparency.</p>
-            </div>
-            <div class="craft-item reveal">
-                <svg class="craft-icon" viewBox="0 0 24 24">
-                    <path d="M14.7,13.3L13.3,14.7L3,4.4L4.4,3L14.7,13.3M19.6,18.2L18.2,19.6L7.9,9.3L9.3,7.9L19.6,18.2Z" fill="none" stroke="#D4AF37" stroke-width="1"/>
-                </svg>
-                <h3 class="heading-md">Hand Forged</h3>
-                <p class="subtext">No mass production. Every prong and bezel is shaped by master artisans.</p>
-            </div>
-            <div class="craft-item reveal">
-                <svg class="craft-icon" viewBox="0 0 24 24">
-                    <path d="M12,2L14.5,9.5L22,12L14.5,14.5L12,22L9.5,14.5L2,12L9.5,9.5L12,2Z" fill="none" stroke="#D4AF37" stroke-width="1"/>
-                </svg>
-                <h3 class="heading-md">Lifetime Glaze</h3>
-                <p class="subtext">Our proprietary polishing technique ensures your piece shines for generations.</p>
+            <div class="btn-group">
+                <button class="btn btn-primary">Explore Collection</button>
+                <button class="btn btn-outline">Private Appointment</button>
             </div>
         </div>
-    </section>
-
-    <section id="testimonials" class="section-padding testimonials">
-        <div class="overlay-dark"></div>
-        <div class="testimonial-slider reveal">
-            <div class="quote-icon">“</div>
-            <div class="stars">★★★★★</div>
-            <p class="review-text">"I have never seen gold capture light this way. It feels less like jewellery and more like wearing a piece of art. Truly exceptional service."</p>
-            <p class="subtext gold-text">— ELEANOR VANCE, NEW YORK</p>
+        <div class="hero-img">
+            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=1200" alt="Luxury Jewellery">
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="contact" class="section-padding" style="background: linear-gradient(to right, #0a0a0a, #151515); text-align: center;">
-        <div class="reveal">
-            <h2 class="heading-lg">Experience the <span class="italic">Showroom</span></h2>
-            <p class="subtext" style="margin-bottom: 3rem;">Visit our boutiques in Paris, London, or New York for a private consultation.</p>
-            <form style="max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem;">
-                <input type="email" placeholder="Enter your email address" style="background: transparent; border: none; border-bottom: 1px solid #333; padding: 1rem; color: #fff; font-family: var(--font-sans);">
-                <button class="btn btn-fill" type="button">Request Appointment</button>
-            </form>
-        </div>
-    </section>
+<!-- STORY -->
+<section class="story">
+    <div>
+        <h2>Where Art Becomes Legacy</h2>
+        <p>
+            Each creation is born from precision, patience, and passion.
+            Designed for those who value refinement beyond trends.
+        </p>
+    </div>
+    <div class="story-img">
+        <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=1200">
+    </div>
+</section>
 
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <a href="#" class="brand-logo">Lumière <span class="gold-text">&</span> Ombre</a>
-                <p class="subtext" style="margin-top: 1rem; font-size: 0.8rem;">
-                    Redefining luxury through light, shadow, and gold.
-                </p>
-            </div>
-            <div class="footer-col">
-                <h4>Collections</h4>
-                <ul>
-                    <li><a href="#">High Jewellery</a></li>
-                    <li><a href="#">Bridal</a></li>
-                    <li><a href="#">Watches</a></li>
-                    <li><a href="#">Gifts</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Maison</h4>
-                <ul>
-                    <li><a href="#">Our Heritage</a></li>
-                    <li><a href="#">Sustainability</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Press</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Accessibility</a></li>
-                </ul>
+<!-- COLLECTIONS -->
+<section class="collections">
+    <h2>Signature Collections</h2>
+    <div class="collection-grid">
+        <div class="collection-card">
+            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800">
+            <div class="collection-label">
+                <h3>Rings</h3>
+                <span>Timeless Icons</span>
             </div>
         </div>
-        <div class="footer-bottom">
-            <span>&copy; 2024 Lumière & Ombre. All rights reserved.</span>
-            <span>Designed for Excellence.</span>
+        <div class="collection-card">
+            <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=800">
+            <div class="collection-label">
+                <h3>Necklaces</h3>
+                <span>Grace in Gold</span>
+            </div>
         </div>
-    </footer>
+        <div class="collection-card">
+            <img src="https://images.unsplash.com/photo-1600180758890-6b94519a8ba6?q=80&w=800">
+            <div class="collection-label">
+                <h3>Earrings</h3>
+                <span>Refined Brilliance</span>
+            </div>
+        </div>
+        <div class="collection-card">
+            <img src="https://images.unsplash.com/photo-1603570419988-6a06fcd0f6c6?q=80&w=800">
+            <div class="collection-label">
+                <h3>Bracelets</h3>
+                <span>Subtle Luxury</span>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // 1. Navbar Scroll Effect
-            const navbar = document.getElementById('navbar');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            });
+<!-- SIGNATURE -->
+<section class="signature">
+    <h2>The Signature Masterpiece</h2>
+    <div class="signature-img">
+        <img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?q=80&w=800">
+    </div>
+</section>
 
-            // 2. Hero Mouse Move "Glaze" Effect
-            const hero = document.querySelector('.hero');
-            const glaze = document.getElementById('glaze');
-            
-            hero.addEventListener('mousemove', (e) => {
-                const x = e.clientX / window.innerWidth;
-                const y = e.clientY / window.innerHeight;
-                
-                // Move the gradient opposite to mouse slightly for depth
-                glaze.style.background = `radial-gradient(circle at ${x * 100}% ${y * 100}%, rgba(212, 175, 55, 0.2), transparent 50%)`;
-                
-                // Parallax effect on background
-                const bg = document.querySelector('.hero-bg');
-                const moveX = (x - 0.5) * 20; // Move up to 20px
-                const moveY = (y - 0.5) * 20;
-                bg.style.transform = `scale(1.1) translate(${moveX}px, ${moveY}px)`;
-            });
+<!-- CRAFT -->
+<section class="craft">
+    <div class="craft-item">
+        <h3>18K Gold</h3>
+        <p>Purity refined to perfection.</p>
+    </div>
+    <div class="craft-item">
+        <h3>Handcrafted</h3>
+        <p>Individually shaped by master artisans.</p>
+    </div>
+    <div class="craft-item">
+        <h3>Ethical Stones</h3>
+        <p>Sourced with transparency and care.</p>
+    </div>
+</section>
 
-            // 3. Scroll Reveal Observer
-            const observerOptions = {
-                threshold: 0.15,
-                rootMargin: "0px 0px -50px 0px"
-            };
+<!-- TESTIMONIAL -->
+<section>
+    <div class="testimonial">
+        <p>
+            “From the moment you see it, you know — this is not jewellery,
+            this is art.”
+        </p>
+        <strong>— Private Collector</strong>
+    </div>
+</section>
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        observer.unobserve(entry.target); // Only animate once
-                    }
-                });
-            }, observerOptions);
+<!-- CTA -->
+<section class="cta">
+    <h2>Experience Jewellery Without Compromise</h2>
+    <button class="btn btn-primary">Visit Our Boutique</button>
+</section>
 
-            const revealElements = document.querySelectorAll('.reveal');
-            revealElements.forEach(el => observer.observe(el));
+<footer>
+    © 2026 Auraa Fine Jewellery · Crafted with Excellence
+</footer>
 
-            // 4. Mobile Menu Toggle
-            window.toggleMenu = function() {
-                const navLinks = document.querySelector('.nav-links');
-                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-                
-                if(navLinks.style.display === 'flex') {
-                    navLinks.style.flexDirection = 'column';
-                    navLinks.style.position = 'absolute';
-                    navLinks.style.top = '70px';
-                    navLinks.style.left = '0';
-                    navLinks.style.width = '100%';
-                    navLinks.style.background = '#050505';
-                    navLinks.style.padding = '2rem';
-                    navLinks.style.borderBottom = '1px solid var(--gold-primary)';
-                }
-            }
-        });
-    </script>
 </body>
 </html>
